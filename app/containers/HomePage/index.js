@@ -11,8 +11,21 @@ import { useInjectSaga } from 'utils/injectSaga';
 import CenteredSection from '../../components/CenteredSection';
 import reducer from './reducer';
 import saga from './saga';
+import useRandom from '../../hoc/useRandom';
 
 const key = 'home';
+
+const TestComp = ({ min, max }) => {
+  const [random, setRandom] = useRandom();
+  return (
+    <>
+      <h3>{random}</h3>
+      <button type="button" onClick={() => setRandom(min, max)}>
+        {`Generate number b/w ${min} and ${max}`}
+      </button>
+    </>
+  );
+};
 
 export function HomePage() {
   useInjectReducer({ key, reducer });
@@ -21,7 +34,11 @@ export function HomePage() {
   return (
     <article>
       <div>
-        <CenteredSection>Yay!</CenteredSection>
+        <CenteredSection>
+          Yay!
+          <TestComp min={100} max={200} />
+          <TestComp min={900} max={999} />
+        </CenteredSection>
       </div>
     </article>
   );
