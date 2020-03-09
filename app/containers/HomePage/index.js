@@ -11,7 +11,8 @@ import { useInjectSaga } from 'utils/injectSaga';
 import CenteredSection from '../../components/CenteredSection';
 import reducer from './reducer';
 import saga from './saga';
-import useRandom from '../../hoc/useRandom';
+import useRandom from '../../custom-hooks/useRandom';
+import withCustomHeader from '../../hoc/withCustomHeader';
 
 const key = 'home';
 
@@ -44,4 +45,4 @@ export function HomePage() {
   );
 }
 
-export default HomePage;
+export default withCustomHeader(HomePage);

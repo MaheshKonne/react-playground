@@ -12,8 +12,9 @@ import messages from './messages';
 import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
+import withCustomHeader from '../../hoc/withCustomHeader';
 
-export default function FeaturePage() {
+function FeaturePage() {
   return (
     <div>
       <Helmet>
@@ -75,3 +76,5 @@ export default function FeaturePage() {
     </div>
   );
 }
+
+export default withCustomHeader(FeaturePage);
